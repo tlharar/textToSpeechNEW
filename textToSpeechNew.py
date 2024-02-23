@@ -1,8 +1,5 @@
 from tkinter import *
 import tkinter as tk
-from playsound import playsound
-from pygame import mixer
-from pydub import AudioSegment
 import pyttsx3
 
 engine = pyttsx3.init()
@@ -46,7 +43,7 @@ master.geometry('750x200')
 master.config(bg = '#000000')
 
 variable = StringVar(master)
-speeds = ["0.5x", "1.0x", "2.0"]
+speeds = ["0.5x", "1.0x", "2.0x"]
 variable.set(speeds[1])
 
 variable2 = StringVar(master)
