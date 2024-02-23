@@ -22,6 +22,8 @@ def play():
 
 
 
+
+
 def readText(text,rate):
 
     model = VitsModel.from_pretrained("facebook/mms-tts-tur")
@@ -32,7 +34,11 @@ def readText(text,rate):
     with torch.no_grad():
         output= model(**inputs).waveform
     Audio(output, rate = model.config.sampling_rate)
-    scipy.io.wavfile.write("techno.wav", rate = model.config.sampling_rate, data = output)
+    output_np = output.cpu().numpy()
+    output_np = np.int16(output_np * 32767)
+    scipy.io.wavfile.write("techno.wav", rate = model.config.sampling_rate, data = output_np)
+
+
 
 
 def get_vol(val):
